@@ -14,9 +14,14 @@ class CarroController{
 
     @PostMapping
     fun cadastrar(@RequestBody carro: Carro): ResponseEntity<Carro> {
-        
-        carroService.cadastrar(carro)
-        return ResponseEntity.ok(carro)
+        try{
+            carroService.cadastrar(carro)
+            return ResponseEntity.ok(carro)
+        }catch (e:Exception){
+            return ResponseEntity.status(400).body(null)
+        }
+
+
 
     }
     @GetMapping
