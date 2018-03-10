@@ -7,7 +7,7 @@ import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 
 @RestController
-@RequestMapping("/api/carro")
+@RequestMapping("/api/carro/{marca}")
 class CarroController{
     @Autowired
     lateinit var carroService : CarroService
@@ -24,7 +24,7 @@ class CarroController{
 
 
     }
-    @GetMapping
+    @GetMapping("/{marca}")
     fun buscarTodos(): List<Carro> {
 
         return  carroService.buscarTodos()
